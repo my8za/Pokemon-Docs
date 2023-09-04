@@ -6,8 +6,9 @@ import ErrorPage from '../pages/ErrorPage';
 import Main from '../pages/Main';
 import Login from '../pages/Login';
 import Detail from '../pages/Detail';
-import Wish from '../pages/Wish';
 import SignUp from '../pages/SignUp';
+import PrivateRoute from './PrivateRoute';
+
 
 const router = createBrowserRouter([
   {
@@ -28,8 +29,8 @@ const router = createBrowserRouter([
         path: 'pokemon/:id',
         element: <Detail />
       }, {
-        path: 'wish',
-        element: <Wish />
+        path: 'like',
+        element: <PrivateRoute />
       }
     ]
   }

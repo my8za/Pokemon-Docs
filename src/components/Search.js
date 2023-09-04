@@ -1,14 +1,16 @@
 import React from 'react'
 // library
+import { useNavigate } from 'react-router';
 import { HiOutlineSearch } from "react-icons/hi";
 // img
 import icon from '../assets/icon_ball_s.png'
 
 const Search = () => {
+  const navigate = useNavigate();
   const handleSearch = (e) => {
     if(e.keyCode === 13) {
       let keyword = e.target.value;
-      console.log(keyword)
+      navigate(`/?q=${keyword}`);
     }
   }
 
@@ -19,7 +21,7 @@ const Search = () => {
         포켓몬 도감
       </h2>
       <div className='search'>
-        <input placeholder='포켓몬 이름을 입력해주세요.' onKeyDown={(e)=>{handleSearch(e)}}/>
+        <input placeholder='포켓몬 이름을 검색해주세요' onKeyDown={(e)=>{handleSearch(e)}}/>
         <button><HiOutlineSearch /></button>
       </div>
 

@@ -19,6 +19,10 @@ export const Slice = createSlice({
     // 한국어 이름 가져오기
     lang: (state, action) => {
       state.value[2] = action.payload;
+    },
+    // 포켓몬 좋아요 리스트
+    like: (state, action) => {
+      state.value[3] = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -48,7 +52,7 @@ export const Slice = createSlice({
 })
 
 export default Slice.reducer;
-export const { login, call, lang } = Slice.actions;
+export const { login, call, lang, like } = Slice.actions;
 
 
 

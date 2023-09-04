@@ -1,12 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+// redux
+import { useSelector, useDispatch } from 'react-redux';
+import { like } from '../redux/Slice';
 // library
-import {
-  AiFillHeart
-} from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const DetailBorad = ({data}) => {
-  console.log(data)
   const img_src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data?.id}.png`;
+
+  const dispatch = useDispatch();
+  let mode = false;
+  const [ checkIcon, setCheckIcon ] = useState(mode);
+  const [ likeList, setLikeList ] = useState([]);
+  const likeData = useSelector(state => state.like.value[3]);
+
+  useEffect(() => {
+    setLikeList(likeList.concat(likeData));
+  }, []);
+  console.log(likeList,' in DetailBoard.js')
+
+  likeList.map(item => {
+    console.log(item)
+  })
+
+
+  // 좋아요 해제
+  const handleClickFill = () => {
+      setCheckIcon(!checkIcon);
+      // setLikeList(likeList.filter())
+      dispatch(like(likeList));
+  }
+  // 좋아요 지정
+  const handleClickEmpty = () => {
+      setCheckIcon(!checkIcon);
+      setLikeList(likeList.concat(data));
+      dispatch(like(likeList))
+  }
+  
+
   return (
     <div className='container'>
       <div className='info'>
@@ -22,7 +53,10 @@ const DetailBorad = ({data}) => {
         </div>
         <div className='btn_like'>
           <p>
-            <AiFillHeart/>
+            {checkIcon ? 
+                <AiFillHeart onClick={handleClickFill}/> 
+                : <AiOutlineHeart onClick={handleClickEmpty}/>
+            }
             <span>좋아요</span>
           </p>
         </div>

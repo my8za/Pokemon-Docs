@@ -9,11 +9,17 @@ import { API_URL } from '../utils/constants/Config';
 import PokeCard from '../components/PokeCard';
 // style
 import '../style/pokemon.scss';
+import { useSearchParams } from 'react-router-dom';
 
 const Main = () => {
 
   const [ renderList, setRenderList ] = useState([]);
+  const [ query, setQuery ] = useSearchParams();
+  const searchKeyword = query.get('q') || '';
+
+  
   const [ koNames, setKoNames ] = useState([]);
+
 
   // api limit 
   const fetchNum = 150;

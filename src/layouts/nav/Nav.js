@@ -14,7 +14,7 @@ const Nav = () => {
   const menu = [
     {img: icon_ball, path: '/', title: '포켓몬도감'},
     {img: icon_login, path: '/login', title: userStatus? '로그아웃' : '로그인'},
-    {img: icon_heart, path: '/wish', title: '즐겨찾기'},
+    {img: icon_heart, path: '/like', title: '즐겨찾기'},
   ];
 
   return (
