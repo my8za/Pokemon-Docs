@@ -1,7 +1,9 @@
 # [Front] Mini Project
 
-<img width={200} src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' alt='pokemon' />
 ## Pokemon-Docs
+
+<img width={200} src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' alt='pokemon' />
+
 
 > 📌 **GitHub**: https://github.com/my8za <br>
 > 📌 **Velog**: https://velog.io/@my8za
