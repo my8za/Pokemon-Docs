@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# [Front] Mini Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img width={200} src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' alt='pokemon' />
+## Pokemon-Docs
 
-## Available Scripts
+> 📌 **GitHub**: https://github.com/my8za <br>
+> 📌 **Velog**: https://velog.io/@my8za
 
-In the project directory, you can run:
+<br/>
 
-### `npm start`
+## [API](https://pokeapi.co/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## [DEMO]()
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+데모페이지 진행중
 
-### `npm test`
+<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 서비스 내용
 
-### `npm run build`
+> 로그인 및 회원가입(localStorage)
+> 전체 포켓몬 조회
+> 포켓몬 검색
+> 포켓몬 즐겨찾기 (위시리스트)
+> 포켓몬 속성별 필터링
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 프로젝트 실행 방법
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. GNB 버튼을 클릭하여 포켓몬도감(메인)/로그인/즐겨찾기 버튼을 통하여 원하는 페이지로 이동할 수 있습니다.
 
-### `npm run eject`
+- **createBrowserRouter**
+- **Redirect 처리**
+  - 로그아웃 상태로 /like 페이지에 접속한다면 /login 경로로 리다이렉트
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. 로그인 페이지에서 회원가입 페이지로 이동할 수 있습니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+( 즐겨찾기 페이지를 이용하기 위해서는 회원가입이 필요합니다. )
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- 로그인 이후에는 로그아웃 버튼, 로그아웃 이후에는 로그인 버튼이 보입니다.
+- 로그아웃 버튼을 클릭하면 다시 로그인 페이지로 이동합니다.
 
-## Learn More
+### 3. 계정이 없는 경우, 회원가입 절차가 필요합니다
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **이메일과 비밀번호의 유효성 검사**
+  - 이메일 조건: @ 포함
+  - 비밀번호 조건: 8자 이상
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+: 조건에 부합하지 않다면 회원가입 버튼은 활성화되지 않습니다. <br/>
+: 회원가입이 완료되면 자동으로 로그인 페이지로 이동됩니다.
 
-### Code Splitting
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 4. 즐겨찾기 페이지에서 좋아요 누른 포켓몬 리스트를 볼 수 있습니다.
 
-### Analyzing the Bundle Size
+- **Private Route**
+  - 로그인 상태 -> 즐겨찾기 페이지
+  - 로그아웃 상태 -> 로그인 페이지로 이동
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<br>
 
-### Making a Progressive Web App
+### 5. 잘 못된 URL 접근시, 에러페이지가 출력됩니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br>
 
-### Advanced Configuration
+### 6. 검색바에서 포켓몬 이름을 검색할 수 있습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<br>
 
-### Deployment
+### 7. 옵션창을 클릭하여 속성별 포켓몬을 필터링 할 수 있습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br>
