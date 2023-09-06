@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // library
 import { useDispatch, useSelector } from 'react-redux';
-import { call, lang } from '../redux/Slice';
+import { GetKorean, ReadAllPoke } from '../redux/api';
 import axios from 'axios';
 // api
 import { API_URL } from '../utils/constants/Config';
@@ -12,56 +12,43 @@ import '../style/pokemon.scss';
 import { useSearchParams } from 'react-router-dom';
 
 const Main = () => {
-
+  let dispatch = useDispatch();  
   const [ renderList, setRenderList ] = useState([]);
   const [ query, setQuery ] = useSearchParams();
   const searchKeyword = query.get('q') || '';
-
-  
-  const [ koNames, setKoNames ] = useState([]);
-
-
   // api limit 
   const fetchNum = 150;
-
-  const readAllPoke = async () => {
-    let url = `${API_URL}/?limit=${fetchNum}`;
-    let resp = await axios.get(url) ;
-    let data = resp.data;
-    const pokemons = data.results.map((item, idx) => {
-      getKorean(idx + 1);
-    return {
-      // name: koNames[idx]
-      name: item?.name,
-      id: idx + 1,
-      img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${idx + 1}.png`
-    }
-  })
-  setRenderList(pokemons);
-  } 
   
   // 한국어 이름가져오기(미완)
-  let test = [];
-  const getKorean = async (id) => {
-    let url = `${API_URL}-species/${id}`;
-    let resp = await axios.get(url);
-    let data = await resp.data;
-    let { name } = data.names[2];
-    test.push(name);
-    setKoNames(test)
-  }
+  // const getKorean = (id) => {
+  //   dispatch(GetKorean(id))
+  // }
+  const koNames = useSelector(state => state.lang.value[2]);
+  console.log(koNames)
 
+  // 포켓몬 데이터
+  const pokeData = useSelector(state => state.call.value[1]);
+  const pokemons = pokeData?.results.map((item, idx) => {
+      // getKorean(idx + 1);
+    return {
+      name: item?.name,
+      id: idx? idx + 1 : null,
+      img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${idx + 1}.png`
+    }
+  });
 
+  
   // 마운트와 동시에 api호출
   useEffect(()=>{
-    readAllPoke();
+    dispatch(ReadAllPoke(fetchNum));
+    setRenderList(pokemons);
   }, [])
 
 
   return (
     <div>
       <ul className='poke_list'>
-        {renderList.map(item => (
+        {renderList && renderList.map(item => (
           <PokeCard item={item} key={item?.id} />
         ))}
       </ul>
