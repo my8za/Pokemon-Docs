@@ -17,8 +17,6 @@ const Detail = () => {
   const [ selected, setSelected ] = useState(null);
   const detailData = useSelector(state => state.detail.value[4]);
 
-
-
   useEffect(() => {
     dispatch(ReadPokeDetail(id));
     setSelected(detailData)
