@@ -8,25 +8,35 @@ import { API_URL } from '../utils/constants/Config';
 export const ReadAllPoke = createAsyncThunk(
   'get/allPokeon',
   async (fetchNum) => {
-    console.log('api call')
     const resp = await axios.get(`${API_URL}/?limit=${fetchNum}`, 
       {
         headers: {
           "Content-Type" : `application/json`,
         },
       });
-    console.log(resp.data)
     return resp.data
     }
 );
 
+// 포켓몬 상세 정보 호출
+export const ReadPokeDetail = createAsyncThunk(
+  'get/pokeDetail',
+  async (id) => {
+    const resp = await axios.get(`${API_URL}/${id}`, 
+      {
+        headers: {
+          "Content-Type" : `application/json`,
+        },
+      });
+    return resp.data
+    }
+);
 
 
 // 한국어 이름가져오기
 export const GetKorean = createAsyncThunk(
   'get/KoreanName',
   async (id) => {
-    console.log('한국어 이름 호출', id)
     const url = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
     const resp = await axios.get(url, 
       {

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 // api
-import { ReadAllPoke, GetKorean } from './api';
+import { ReadAllPoke, GetKorean, ReadPokeDetail } from './api';
 
 
 // 로그인 상태관리
@@ -23,6 +23,10 @@ export const Slice = createSlice({
     // 포켓몬 좋아요 리스트
     like: (state, action) => {
       state.value[3] = action.payload;
+    },
+    // 포켓몬 상세페이지
+    detail: (state, action) => {
+      state.value[4] = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -48,11 +52,22 @@ export const Slice = createSlice({
     builder.addCase(GetKorean.rejected, (state) => {
       state.status = 'Fail';
     })
+    // 포켓몬 상세정보
+    builder.addCase(ReadPokeDetail.pending, (state) => {
+      state.status = 'Loading';
+    })
+    builder.addCase(ReadPokeDetail.fulfilled, (state, action) => {
+      state.value[4] = action.payload;
+      state.status = 'Complete';
+    })
+    builder.addCase(ReadPokeDetail.rejected, (state) => {
+      state.status = 'Fail';
+    })
   }
 })
 
 export default Slice.reducer;
-export const { login, call, lang, like } = Slice.actions;
+export const { login, call, lang, like, detail } = Slice.actions;
 
 
 

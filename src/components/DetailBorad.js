@@ -6,9 +6,9 @@ import { like } from '../redux/Slice';
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const DetailBorad = ({data}) => {
+  const dispatch = useDispatch();
   const img_src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data?.id}.png`;
 
-  const dispatch = useDispatch();
   let mode = false;
   const [ checkIcon, setCheckIcon ] = useState(mode);
   const [ likeList, setLikeList ] = useState([]);
@@ -17,10 +17,9 @@ const DetailBorad = ({data}) => {
   useEffect(() => {
     setLikeList(likeList.concat(likeData));
   }, []);
-  console.log(likeList,' in DetailBoard.js')
 
   likeList.map(item => {
-    console.log(item)
+    console.log(item);
   })
 
 

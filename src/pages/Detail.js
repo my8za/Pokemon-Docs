@@ -8,21 +8,21 @@ import DetailBorad from '../components/DetailBorad';
 import '../style/pokemon.scss';
 // api
 import { API_URL } from '../utils/constants/Config';
+import { useDispatch, useSelector } from 'react-redux';
+import { ReadPokeDetail } from '../redux/api';
 
 const Detail = () => {
+  const dispatch = useDispatch();
   let { id } = useParams();
-
   const [ selected, setSelected ] = useState(null);
-  const getPokeDetail = async() => {
-    let url = `${API_URL}/${id}`;
-    let resp = await axios.get(url);
-    let data = await resp.data;
-    setSelected(data);
-  }
+  const detailData = useSelector(state => state.detail.value[4]);
+
+
 
   useEffect(() => {
-    getPokeDetail();
-  }, [])
+    dispatch(ReadPokeDetail(id));
+    setSelected(detailData)
+  }, [detailData])
 
   return (
     <div className='detail'>
