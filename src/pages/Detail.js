@@ -14,17 +14,15 @@ import { ReadPokeDetail } from '../redux/api';
 const Detail = () => {
   const dispatch = useDispatch();
   let { id } = useParams();
-  const [ selected, setSelected ] = useState(null);
   const detailData = useSelector(state => state.detail.value[4]);
 
   useEffect(() => {
     dispatch(ReadPokeDetail(id));
-    setSelected(detailData)
-  }, [detailData])
+  }, [dispatch])
 
   return (
     <div className='detail'>
-      <DetailBorad data={selected}/>
+      <DetailBorad data={detailData}/>
     </div>
   )
 }
