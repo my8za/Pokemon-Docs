@@ -32,10 +32,9 @@ export const ReadPokeDetail = createAsyncThunk(
     }
 );
 
-
-// 한국어 이름가져오기
-export const GetKorean = createAsyncThunk(
-  'get/KoreanName',
+// 포켓몬 부가 정보 + 한국어 이름
+export const GetSpeciesInfo = createAsyncThunk(
+  'get/speciesInfo',
   async (id) => {
     const url = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
     const resp = await axios.get(url, 

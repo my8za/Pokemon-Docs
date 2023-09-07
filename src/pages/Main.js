@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // redux_api
-import { GetKorean, ReadAllPoke } from '../redux/api';
+import { GetSpeciesInfo, ReadAllPoke } from '../redux/api';
 // components
 import PokeCard from '../components/PokeCard';
 // style

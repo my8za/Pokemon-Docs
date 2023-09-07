@@ -1,11 +1,11 @@
 import React from 'react'
 // components
 import Nav from './nav/Nav'
+import { useNavigate } from 'react-router-dom';
 // img
 import logo from '../assets/main_logo.png';
 // style
 import './header.scss';
-import { useNavigate } from 'react-router-dom';
 
 
 const Header = () => {
