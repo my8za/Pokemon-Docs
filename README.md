@@ -4,13 +4,14 @@
 
 <img width={200} src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' alt='pokemon' />
 
-
 > 📌 **GitHub**: https://github.com/my8za <br>
 > 📌 **Velog**: https://velog.io/@my8za
 
 <br/>
 
 ## [API](https://pokeapi.co/)
+
+포켓몬 API, https://pokeapi.co/
 
 ## [DEMO]()
 
@@ -32,7 +33,8 @@
 
 ### 1. GNB 버튼을 클릭하여 포켓몬도감(메인)/로그인/즐겨찾기 버튼을 통하여 원하는 페이지로 이동할 수 있습니다.
 
-- **createBrowserRouter**
+- Route
+  - createBrowserRouter
 - **Redirect 처리**
   - 로그아웃 상태로 /like 페이지에 접속한다면 /login 경로로 리다이렉트
 
@@ -40,10 +42,10 @@
 
 ### 2. 로그인 페이지에서 회원가입 페이지로 이동할 수 있습니다.
 
-( 즐겨찾기 페이지를 이용하기 위해서는 회원가입이 필요합니다. )
-
 - 로그인 이후에는 로그아웃 버튼, 로그아웃 이후에는 로그인 버튼이 보입니다.
 - 로그아웃 버튼을 클릭하면 다시 로그인 페이지로 이동합니다.
+
+<br />
 
 ### 3. 계정이 없는 경우, 회원가입 절차가 필요합니다
 
@@ -57,6 +59,8 @@
 <br>
 
 ### 4. 즐겨찾기 페이지에서 좋아요 누른 포켓몬 리스트를 볼 수 있습니다.
+
+( 즐겨찾기 페이지를 이용하기 위해서는 회원가입이 필요합니다. )
 
 - **Private Route**
   - 로그인 상태 -> 즐겨찾기 페이지

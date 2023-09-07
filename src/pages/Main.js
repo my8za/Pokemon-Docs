@@ -13,7 +13,6 @@ import { useSearchParams } from 'react-router-dom';
 
 const Main = () => {
   const dispatch = useDispatch();  
-  const [ renderList, setRenderList ] = useState([]);
   const [ query, setQuery ] = useSearchParams();
   const searchKeyword = query.get('q') || '';
   // api limit 
@@ -31,18 +30,16 @@ const Main = () => {
   });
 
 
-
   // 마운트와 동시에 api호출
   useEffect(()=>{
     dispatch(ReadAllPoke(fetchNum));
-    setRenderList(pokemons);
-  }, [ ])
+  }, [dispatch, pokemons])
 
 
   return (
     <div>
       <ul className='poke_list'>
-        {renderList && renderList.map(item => (
+        {pokemons?.map(item => (
           <PokeCard item={item} key={item?.id} />
         ))}
       </ul>
