@@ -1,41 +1,36 @@
-import React, { useState, useEffect } from 'react'
-// redux
-import { useSelector, useDispatch } from 'react-redux';
-import { like } from '../redux/Slice';
+import React, { useContext, useState } from 'react'
+// context
+import { PokeContext } from '../context/PokeContext';
 // library
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
-const DetailBorad = ({data}) => {
-  const dispatch = useDispatch();
+const DetailBoard = ({data}) => {
   const img_src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data?.id}.png`;
 
+  // 좋아요 누른 포켓몬 배열 
+  const { likeList, setLikeList } = useContext(PokeContext);
+  console.log(likeList)
+  // 좋아요 여부 상태
   let mode = false;
+  likeList?.map(item => {
+    if(item.id === data?.id) {
+      mode = true;
+    }
+  });
   const [ checkIcon, setCheckIcon ] = useState(mode);
-  const [ likeList, setLikeList ] = useState([]);
-  const likeData = useSelector(state => state.like.value[3]);
 
-  useEffect(() => {
-    setLikeList(likeList.concat(likeData));
-  }, []);
-
-  likeList.map(item => {
-    console.log(item);
-  })
 
 
   // 좋아요 해제
   const handleClickFill = () => {
-      setCheckIcon(!checkIcon);
-      // setLikeList(likeList.filter())
-      dispatch(like(likeList));
+    setCheckIcon(!checkIcon)
+    setLikeList(likeList.filter(item => item.id !== data?.id));
   }
   // 좋아요 지정
   const handleClickEmpty = () => {
-      setCheckIcon(!checkIcon);
-      setLikeList(likeList.concat(data));
-      dispatch(like(likeList))
+    setCheckIcon(!checkIcon)
+    setLikeList(likeList.concat(data));
   }
-  
 
   return (
     <div className='container'>
@@ -64,4 +59,4 @@ const DetailBorad = ({data}) => {
   )
 }
 
-export default DetailBorad;
+export default DetailBoard;

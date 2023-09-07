@@ -1,28 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 // library
 import { useParams } from 'react-router'
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+// redux_api
+import { ReadPokeDetail } from '../redux/api';
 // components
-import DetailBorad from '../components/DetailBorad';
+import DetailBoard from '../components/DetailBoard';
 // style
 import '../style/pokemon.scss';
-// api
-import { API_URL } from '../utils/constants/Config';
-import { useDispatch, useSelector } from 'react-redux';
-import { ReadPokeDetail } from '../redux/api';
 
 const Detail = () => {
   const dispatch = useDispatch();
   let { id } = useParams();
-  const detailData = useSelector(state => state.detail.value[4]);
+  const detailData = useSelector(state => state.detail.value[3]);
 
   useEffect(() => {
     dispatch(ReadPokeDetail(id));
-  }, [dispatch])
+  }, [dispatch, id])
 
   return (
     <div className='detail'>
-      <DetailBorad data={detailData}/>
+      <DetailBoard data={detailData}/>
     </div>
   )
 }

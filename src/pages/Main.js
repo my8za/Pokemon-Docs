@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 // library
+import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+// redux_api
 import { GetKorean, ReadAllPoke } from '../redux/api';
-import axios from 'axios';
-// api
-import { API_URL } from '../utils/constants/Config';
 // components
 import PokeCard from '../components/PokeCard';
 // style
 import '../style/pokemon.scss';
-import { useSearchParams } from 'react-router-dom';
 
 const Main = () => {
   const dispatch = useDispatch();  
@@ -23,7 +21,7 @@ const Main = () => {
   const pokeData = useSelector(state => state.call.value[1]);
   const pokemons = pokeData?.results.map((item, idx) => {
     return {
-      name: item?.name,
+      name: item.name,
       id: idx + 1,
       img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${idx + 1}.png`
     }
