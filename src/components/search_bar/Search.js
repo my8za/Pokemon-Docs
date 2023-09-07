@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router';
 import { HiOutlineSearch } from "react-icons/hi";
 // img
-import icon from '../assets/icon_ball_s.png'
+import icon from '../../assets/icon_ball_s.png'
 
 const Search = () => {
   const navigate = useNavigate();

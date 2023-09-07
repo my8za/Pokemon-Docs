@@ -5,8 +5,8 @@ const Store = configureStore({
   reducer: {
     login: Slice,
     call: Slice,
-    lang: Slice,
     detail: Slice,
+    species: Slice,
     // 모든 reducer를 통합하여 store에 하나의 reducer로 저장
   },
   middleware: getDefaultMiddleware =>

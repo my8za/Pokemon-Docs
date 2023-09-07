@@ -12,7 +12,7 @@ const PokeCard = ({item}) => {
       <img src={item?.img} alt='pokemon' />
       <article className='bx_txt'>
         <p className='poke_id'>No.{item?.id}</p>
-      <p className='poke_name'>{item?.name}</p>
+        <p className='poke_name'>{item?.name}</p>
       </article>
     </li>
   )

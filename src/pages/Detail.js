@@ -12,7 +12,7 @@ import '../style/pokemon.scss';
 const Detail = () => {
   const dispatch = useDispatch();
   let { id } = useParams();
-  const detailData = useSelector(state => state.detail.value[3]);
+  const detailData = useSelector(state => state.detail.value[2]);
 
   useEffect(() => {
     dispatch(ReadPokeDetail(id));
