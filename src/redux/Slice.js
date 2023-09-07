@@ -20,13 +20,9 @@ export const Slice = createSlice({
     lang: (state, action) => {
       state.value[2] = action.payload;
     },
-    // 포켓몬 좋아요 리스트
-    like: (state, action) => {
-      state.value[3] = action.payload;
-    },
     // 포켓몬 상세페이지
     detail: (state, action) => {
-      state.value[4] = action.payload;
+      state.value[3] = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -57,7 +53,7 @@ export const Slice = createSlice({
       state.status = 'Loading';
     })
     builder.addCase(ReadPokeDetail.fulfilled, (state, action) => {
-      state.value[4] = action.payload;
+      state.value[3] = action.payload;
       state.status = 'Complete';
     })
     builder.addCase(ReadPokeDetail.rejected, (state) => {
@@ -67,7 +63,7 @@ export const Slice = createSlice({
 })
 
 export default Slice.reducer;
-export const { login, call, lang, like, detail } = Slice.actions;
+export const { login, call, lang, detail } = Slice.actions;
 
 
 

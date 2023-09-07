@@ -6,6 +6,8 @@ import { RouterProvider } from 'react-router-dom';
 import router from './route/router';
 // store
 import Store from './redux/Store';
+// context
+import PokeProvider from './context/PokeContext';
 // style
 import './style/sass/reset.scss';
 import { Provider } from 'react-redux';
@@ -13,8 +15,10 @@ import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Provider store={Store}>
-        <RouterProvider router={router} />
-    </Provider>
+    <PokeProvider>
+        <Provider store={Store}>
+            <RouterProvider router={router} />
+        </Provider>
+    </PokeProvider>
 );
 
