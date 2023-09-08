@@ -1,6 +1,11 @@
 @import './sass/var';
 
 // Main
+.main_section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 .poke_list {
   display: flex;
   flex-wrap: wrap;

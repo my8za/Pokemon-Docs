@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 // redux
 import { useDispatch } from 'react-redux';
 import { limit } from '../redux/Slice';

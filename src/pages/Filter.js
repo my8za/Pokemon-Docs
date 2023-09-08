@@ -9,7 +9,7 @@ import '../style/pokemon.scss';
 
 const Filter = () => {
     // 검색키워드
-  const [ query, setQuery ] = useSearchParams();
+  const [ query ] = useSearchParams();
   let searchPoke = query?.get('q') || '';
   const [ search, setSearch ] = useState([]);
 
@@ -26,7 +26,7 @@ const Filter = () => {
 
   useEffect(()=>{
     setSearch(pokemons?.filter(item => item.name.includes(searchPoke)));
-  }, [query])
+  }, [pokemons, searchPoke])
 
   return (
     <div className='wrap'>
