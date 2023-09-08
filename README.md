@@ -17,7 +17,8 @@
 
 링크 클릭시 배포된 데모 페이지로 이동합니다.
 
-<img width='80%' src='(https://github.com/my8za/Pokemon-Docs/assets/93106858/8d0bf0bc-d551-4b72-9101-386907433fb1' alt='demo'/>
+![pokemon](https://github.com/my8za/Pokemon-Docs/assets/93106858/8d0bf0bc-d551-4b72-9101-386907433fb1)
+
 
 
 
