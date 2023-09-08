@@ -16,7 +16,7 @@ const Like = () => {
   })
 
   return (
-    <div>
+    <div className='wrap'>
       <ul className='poke_list'>
         {likePoke?.map(item => (
           <PokeCard item={item} key={item?.id}/>

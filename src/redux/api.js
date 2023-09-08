@@ -7,8 +7,8 @@ import { API_URL } from '../utils/constants/Config';
 // 포켓몬 api 호출
 export const ReadAllPoke = createAsyncThunk(
   'get/allPokeon',
-  async (fetchNum) => {
-    const resp = await axios.get(`${API_URL}/?limit=${fetchNum}`, 
+  async (limitNum) => {
+    const resp = await axios.get(`${API_URL}/?limit=${limitNum}`, 
       {
         headers: {
           "Content-Type" : `application/json`,

@@ -24,6 +24,10 @@ export const Slice = createSlice({
     species: (state, action) => {
       state.value[3] = action.payload;
     },
+    // api limit 개수
+    limit: (state, action) => {
+      state.value[4] = action.payload;
+    }
     
   },
   extraReducers: (builder) => {
@@ -64,7 +68,7 @@ export const Slice = createSlice({
 })
 
 export default Slice.reducer;
-export const { login, call, detail, species } = Slice.actions;
+export const { login, call, detail, species, limit } = Slice.actions;
 
 
 

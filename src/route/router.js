@@ -8,6 +8,7 @@ import Login from '../pages/Login';
 import Detail from '../pages/Detail';
 import SignUp from '../pages/SignUp';
 import PrivateRoute from './PrivateRoute';
+import Filter from '../pages/Filter';
 
 
 const router = createBrowserRouter([
@@ -31,7 +32,10 @@ const router = createBrowserRouter([
       }, {
         path: 'like',
         element: <PrivateRoute />
-      }
+      }, {
+        path: 'filter',
+        element: <Filter />
+      },
     ]
   }
 ]);
