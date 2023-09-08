@@ -1,0 +1,26 @@
+@import './sass/var';
+
+// api limit option
+.bx_limit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 440px;
+  padding-top: 10px;
+  color: $dark;
+  > p {font-weight: 700;}
+  .limit_num {
+    display: flex;
+    .num {
+    width: 15%;
+    padding: 15px 20px;
+    border: 1px solid $dark;
+    background: transparent;
+    text-align: center;
+    font-size: 18px;
+    outline: none;
+    cursor: auto;
+    }
+    span {margin: 15px;}
+  }
+}

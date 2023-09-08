@@ -112,3 +112,17 @@
 }
 
 
+// 검색결과 없음
+.no_results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 351.5px);
+  font-size: 20px;
+  color: #999;
+  .icon {
+    font-size: 50px;
+    padding-bottom: 20px;
+  }
+}
