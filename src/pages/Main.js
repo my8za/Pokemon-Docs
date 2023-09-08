@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 // library
 import { useDispatch, useSelector } from 'react-redux';
 // redux_api
-import { GetSpeciesInfo, ReadAllPoke } from '../redux/api';
+import { ReadAllPoke } from '../redux/api';
 // components
 import PokeCard from '../components/PokeCard';
 import Option from '../components/Option';
@@ -31,7 +31,7 @@ const Main = () => {
 
 
   return (
-    <div>
+    <div className='main_section'>
       <Option />
       <ul className='poke_list'>
         {pokemons?.map(item => (
