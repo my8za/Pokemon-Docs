@@ -4,7 +4,7 @@
 
 <img width={200} src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' alt='pokemon' />
 
-> 📌 **사용 API**: https://github.com/my8za](https://pokeapi.co/ <br>
+> 📌 **사용 API**: https://pokeapi.co/ <br>
 > 📌 **GitHub**: https://github.com/my8za <br>
 > 📌 **Velog**: https://velog.io/@my8za
 
