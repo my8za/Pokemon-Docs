@@ -27,7 +27,7 @@ const Main = () => {
   // 마운트와 동시에 api호출
   useEffect(()=>{
     dispatch(ReadAllPoke(limitNum));
-  }, [dispatch, pokemons])
+  }, [dispatch, pokemons, limitNum])
 
 
   return (
