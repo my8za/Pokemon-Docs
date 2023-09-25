@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 // library
 import { useDispatch, useSelector } from 'react-redux';
 // redux_api
@@ -23,11 +23,14 @@ const Main = () => {
     }
   });
 
+  const callPokemon = useCallback(()=>{
+    dispatch(ReadAllPoke(limitNum));
+  }, [dispatch, limitNum])
 
   // 마운트와 동시에 api호출
   useEffect(()=>{
-    dispatch(ReadAllPoke(limitNum));
-  }, [dispatch, pokemons, limitNum])
+    callPokemon();
+  }, [callPokemon])
 
 
   return (

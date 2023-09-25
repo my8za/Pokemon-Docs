@@ -26,7 +26,7 @@ const Search = () => {
         <form onSubmit={e => {e.preventDefault();}}>
           <input 
             placeholder='포켓몬 이름을 검색해주세요' 
-            value={keyword}
+            value={keyword || ''}
             onChange={e => setKeyword(e.target.value) }
             onKeyDown={(e)=>{handleSearch(e)}} 
             onFocus={() => setKeyword('')}/>
