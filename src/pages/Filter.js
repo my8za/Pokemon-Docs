@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import PokeCard from '../components/PokeCard';
@@ -24,9 +24,15 @@ const Filter = () => {
     }
   });
 
-  useEffect(()=>{
+  const doSearch = useCallback(()=>{
+    // 검색 키워드를 포함한 포켓몬 이름이 있는 배열
     setSearch(pokemons?.filter(item => item.name.includes(searchPoke)));
   }, [pokemons, searchPoke])
+
+  useEffect(()=>{
+    doSearch();
+  }, [doSearch])
+
 
   return (
     <div className='wrap'>

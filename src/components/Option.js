@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // redux
 import { useDispatch } from 'react-redux';
 import { limit } from '../redux/Slice';
@@ -9,7 +9,10 @@ import '../style/comp.scss';
 const Option = () => {
   const dispatch = useDispatch();
   const [ limitNum, setLimitNum ] = useState(150);
-  dispatch(limit(limitNum))
+
+  useEffect(()=>{
+    dispatch(limit(limitNum))
+  }, [dispatch, limitNum])
 
   return (
     <div className='bx_limit'>
